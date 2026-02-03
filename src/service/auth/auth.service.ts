@@ -1,4 +1,4 @@
-import { IAuthService } from './IAuth.interface';
+import { IAuthService, ILoginPost } from './IAuth.interface';
 //Aqui va la regla de negocio, las consultas en tus bases de datos y tus querys.
 //Trata de que cada accion distinta se implemente en metodos separados
 export class AuthService implements IAuthService{
@@ -9,8 +9,7 @@ export class AuthService implements IAuthService{
         return accion;
     }
 
-    public async createMessage( name:string):Promise<string>{
-        const resp = `Hello ${name}`;
+    public async validateInfoUser( data:ILoginPost):Promise<string>{
         
             // const resp = false; 
 
