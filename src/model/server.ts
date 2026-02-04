@@ -7,11 +7,11 @@ export class Server {
   private readonly port: number;
 
   private pathsWeb = {
-    auth: "/auth",
+    auth: "/api/v1/auth",
   };
 
-  constructor() {
-    this.port = 8080;
+  constructor( port:number = 3000) {
+    this.port = port;
 
     this.middlewares();
     this.routes();

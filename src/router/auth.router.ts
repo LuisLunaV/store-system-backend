@@ -9,10 +9,11 @@ const authService = new AuthService();
 const authController = new AuthController( authService );
 
 //Generamos las api's
-router.get('/api/v1/saludo', authController.getAction)
-router.post('/api/v1/saludo',[
-check('name', 'ESte campo es obligatorio').not().isEmpty(), //Middleware de validator
+
+router.post('/login',[
+check('email', 'Agregue un email valido').isEmail(), //Middleware de validator
+check('password', 'El password es de minimo 7 caracteres').isLength({ min: 7}),
 validateProperties //Atrapamos los errores del middlware
-],authController.postAction)
+],authController.loginPost)
 
 export default router;

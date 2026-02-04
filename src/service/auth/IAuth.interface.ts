@@ -1,8 +1,13 @@
+interface ILoginPost{
+    email:string,
+    password:string
+}
+
 interface IAuthService {
- greeting(): Promise<string>;
- createMessage(name:string):Promise<string>;
+ validateInfoUser(data:ILoginPost):Promise<void>;
 }
 
 export{
+    ILoginPost,
     IAuthService
 }
