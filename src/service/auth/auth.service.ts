@@ -15,13 +15,14 @@ export class AuthService implements IAuthService {
   public async validateInfoUser(data: ILoginPost): Promise<any> {
     const { email, password } = data;
     console.log(email);
+    console.log(password);
 
     const user:IUser|null = await prisma.user.findUnique({
       where: {
         email,
       },
     });
-
+console.log(user)
     if (!user) throw instanceNotFoundError("Usuario no encontrado");
 
     //tambien aqui puedes generar tur errores personalizaados si el usuario no existe, esta dado debaja, etc/
